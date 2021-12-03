@@ -1,17 +1,11 @@
 <!--
  * @Author: 九阳
  * @Date: 2021-11-16 09:51:34
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-26 14:48:35
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-11-30 16:37:12
 -->
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
-  <router-view v-slot="{ Component }">
-    <component :is="Component" />
-  </router-view>
+  <router-view />
 </template>
 
 <style>

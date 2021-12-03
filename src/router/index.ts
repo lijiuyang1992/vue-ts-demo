@@ -1,8 +1,8 @@
 /*
  * @Author: 九阳
  * @Date: 2021-11-16 09:51:34
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-28 14:37:35
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-12-03 19:33:14
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
@@ -125,6 +125,121 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("../views/listForm/listForm.vue"),
         meta: {
           title: "动态增减表单项",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Test",
+        name: "d3Test",
+        component: () => import("../views/d3/d3Test.vue"),
+        meta: {
+          title: "d3图表",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Interval",
+        name: "d3Interval",
+        component: () => import("../views/d3/d3Interval.vue"),
+        meta: {
+          title: "d3柱状图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Pie",
+        name: "d3Pie",
+        component: () => import("../views/d3/d3Pie.vue"),
+        meta: {
+          title: "d3饼图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Smooth",
+        name: "d3Smooth",
+        component: () => import("../views/d3/d3Smooth.vue"),
+        meta: {
+          title: "平滑缩放",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Canvas",
+        name: "d3Canvas",
+        component: () => import("../views/d3/d3Canvas.vue"),
+        meta: {
+          title: "正交到等矩形",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/d3Bar",
+        name: "d3Bar",
+        component: () => import("../views/d3/d3Bar.vue"),
+        meta: {
+          title: "柱状图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Clock",
+        name: "d3Clock",
+        component: () => import("../views/d3/d3Clock.vue"),
+        meta: {
+          title: "时钟",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/inTerval",
+        name: "inTerval",
+        component: () => import("../views/d3inTerval/inTerval01.vue"),
+        meta: {
+          title: "柱状图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/3dChart",
+        name: "3dChart",
+        component: () => import("../views/d3inTerval/3dChart.vue"),
+        meta: {
+          title: "3D立体",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/brokenLine",
+        name: "brokenLine",
+        component: () => import("../views/d3inTerval/brokenLine.vue"),
+        meta: {
+          title: "折线图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/area",
+        name: "area",
+        component: () => import("../views/d3inTerval/d3Area.vue"),
+        meta: {
+          title: "面积",
           icon: "home-4-line",
           keepAlive: true,
         },

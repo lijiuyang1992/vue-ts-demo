@@ -1,8 +1,8 @@
 <!--
  * @Author: 九阳
  * @Date: 2021-11-16 09:51:34
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-28 09:39:52
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-11-30 09:20:32
 -->
 <template>
   <a-row :gutter="24">
@@ -50,7 +50,7 @@ import {
   chartArea,
   chartPie,
   chartInterval,
-} from "@/views/chart.ts";
+} from "@/chart/g2/chart.ts";
 
 export default defineComponent({
   setup() {

@@ -1,11 +1,12 @@
 <!--
  * @Author: 九阳
  * @Date: 2021-11-19 17:06:46
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-26 16:17:09
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-11-30 15:22:48
 -->
 <template>
   <a-layout-sider
+    style="min-height: 100vh"
     theme="light"
     v-model:collapsed="collapsed"
     :trigger="null"

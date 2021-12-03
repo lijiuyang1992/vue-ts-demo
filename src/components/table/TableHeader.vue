@@ -1,8 +1,8 @@
 <!--
  * @Author: 九阳
  * @Date: 2021-11-24 15:04:15
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-26 09:17:01
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-11-30 16:38:24
 -->
 <template>
   <a-form
@@ -14,98 +14,96 @@
     <a-row :gutter="16">
       <template v-for="(item, index) in tableHeader" :key="index">
         <a-col class="gutter-row" :span="6">
-          <a-config-provider :locale="zhCN">
-            <a-form-item :label="item['label']">
-              <template v-if="item['type'] === 'input'">
-                <a-input
-                  v-model:value="formObject[item['field']]"
-                  :placeholder="item['placeholder']"
-                  allowClear
-                />
-              </template>
-              <template v-if="item['type'] === 'select'">
-                <a-select
-                  v-model:value="formDate[item['field']]"
-                  :placeholder="item['placeholder']"
-                  allowClear
+          <a-form-item :label="item['label']">
+            <template v-if="item['type'] === 'input'">
+              <a-input
+                v-model:value="formObject[item['field']]"
+                :placeholder="item['placeholder']"
+                allowClear
+              />
+            </template>
+            <template v-if="item['type'] === 'select'">
+              <a-select
+                v-model:value="formDate[item['field']]"
+                :placeholder="item['placeholder']"
+                allowClear
+              >
+                <template
+                  v-for="(options, index) in selectOptions(item['vsCode'])"
+                  :key="index"
                 >
-                  <template
-                    v-for="(options, index) in selectOptions(item['vsCode'])"
-                    :key="index"
-                  >
-                    <a-select-option :value="options['value']">{{
-                      options["label"]
-                    }}</a-select-option>
-                  </template>
-                </a-select>
-              </template>
-              <!-- 单选日期 -->
-              <template v-if="item['type'] === 'date'">
-                <a-date-picker
-                  format="YYYY-MM-DD"
-                  v-model:value="formDate[item['field']]"
-                  @change="onChangeRange(item)"
-                  placeholder="请选择日期"
-                />
-              </template>
-              <!-- 单选时间 -->
-              <template v-if="item['type'] === 'dateTime'">
-                <a-date-picker
-                  :show-time="{ format: 'HH:mm' }"
-                  format="YYYY-MM-DD HH:mm"
-                  v-model:value="formDate[item['field']]"
-                  @ok="onOkRange(item)"
-                  placeholder="请选择日期"
-                />
-              </template>
-              <!-- 单选年 -->
-              <template v-if="item['type'] === 'year'">
-                <a-month-picker
-                  format="YYYY"
-                  mode="year"
-                  v-model:value="formDate[item['field']]"
-                  @change="onChangeRange(item)"
-                  placeholder="请选择年"
-                />
-              </template>
-              <!-- 单选月 -->
-              <template v-if="item['type'] === 'month'">
-                <a-month-picker
-                  format="YYYY-MM"
-                  v-model:value="formDate[item['field']]"
-                  @change="onChangeRange(item)"
-                  placeholder="请选择月份"
-                />
-              </template>
-              <!-- 单选周 -->
-              <template v-if="item['type'] === 'week'">
-                <a-week-picker
-                  format="YYYY-wo"
-                  v-model:value="formDate[item['field']]"
-                  @change="onChangeRange(item)"
-                  placeholder="请选择周"
-                />
-              </template>
-              <!-- 单选日期范围-->
-              <template v-if="item['type'] === 'range'">
-                <a-range-picker
-                  v-model:value="formDate[item['field']]"
-                  @change="onChangeRange(item)"
-                  :placeholder="['开始日期', '结束日期']"
-                />
-              </template>
-              <!-- 单选日期时间范围-->
-              <template v-if="item['type'] === 'rangeTime'">
-                <a-range-picker
-                  :show-time="{ format: 'HH:mm' }"
-                  format="YYYY-MM-DD HH:mm"
-                  v-model:value="formDate[item['field']]"
-                  @ok="onOkRange(item)"
-                  :placeholder="['开始时间', '结束时间']"
-                />
-              </template>
-            </a-form-item>
-          </a-config-provider>
+                  <a-select-option :value="options['value']">{{
+                    options["label"]
+                  }}</a-select-option>
+                </template>
+              </a-select>
+            </template>
+            <!-- 单选日期 -->
+            <template v-if="item['type'] === 'date'">
+              <a-date-picker
+                format="YYYY-MM-DD"
+                v-model:value="formDate[item['field']]"
+                @change="onChangeRange(item)"
+                placeholder="请选择日期"
+              />
+            </template>
+            <!-- 单选时间 -->
+            <template v-if="item['type'] === 'dateTime'">
+              <a-date-picker
+                :show-time="{ format: 'HH:mm' }"
+                format="YYYY-MM-DD HH:mm"
+                v-model:value="formDate[item['field']]"
+                @ok="onOkRange(item)"
+                placeholder="请选择日期"
+              />
+            </template>
+            <!-- 单选年 -->
+            <template v-if="item['type'] === 'year'">
+              <a-month-picker
+                format="YYYY"
+                mode="year"
+                v-model:value="formDate[item['field']]"
+                @change="onChangeRange(item)"
+                placeholder="请选择年"
+              />
+            </template>
+            <!-- 单选月 -->
+            <template v-if="item['type'] === 'month'">
+              <a-month-picker
+                format="YYYY-MM"
+                v-model:value="formDate[item['field']]"
+                @change="onChangeRange(item)"
+                placeholder="请选择月份"
+              />
+            </template>
+            <!-- 单选周 -->
+            <template v-if="item['type'] === 'week'">
+              <a-week-picker
+                format="YYYY-wo"
+                v-model:value="formDate[item['field']]"
+                @change="onChangeRange(item)"
+                placeholder="请选择周"
+              />
+            </template>
+            <!-- 单选日期范围-->
+            <template v-if="item['type'] === 'range'">
+              <a-range-picker
+                v-model:value="formDate[item['field']]"
+                @change="onChangeRange(item)"
+                :placeholder="['开始日期', '结束日期']"
+              />
+            </template>
+            <!-- 单选日期时间范围-->
+            <template v-if="item['type'] === 'rangeTime'">
+              <a-range-picker
+                :show-time="{ format: 'HH:mm' }"
+                format="YYYY-MM-DD HH:mm"
+                v-model:value="formDate[item['field']]"
+                @ok="onOkRange(item)"
+                :placeholder="['开始时间', '结束时间']"
+              />
+            </template>
+          </a-form-item>
         </a-col>
       </template>
     </a-row>
@@ -117,7 +115,6 @@ import { HeaderType } from "@/type/tableType";
 import { Storage } from "@/store/storage";
 import { SelectTypes } from "ant-design-vue/es/select";
 import moment, { Moment } from "moment";
-import zhCN from "ant-design-vue/es/locale/zh_CN";
 
 export default defineComponent({
   name: "tableHeader",
@@ -214,7 +211,6 @@ export default defineComponent({
       onChangeRange,
       onOkRange,
       formDate,
-      zhCN,
       labelCol: { style: { width: "100px" } },
     };
   },

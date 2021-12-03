@@ -1,8 +1,8 @@
 /*
  * @Author: 九阳
  * @Date: 2021-11-19 10:37:59
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-28 14:39:20
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-12-03 19:33:01
  */
 const menuItems = [
   {
@@ -135,6 +135,146 @@ const menuItems = [
         node: true,
         meta: {
           title: "动态增减表单项",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+    ],
+  },
+
+  {
+    path: "/ds",
+    name: "ds",
+    node: false,
+    meta: {
+      title: "数据驱动文档",
+      icon: "icon-zujianshiyong",
+      keepAlive: true,
+    },
+    children: [
+      {
+        path: "/d3Test",
+        name: "d3Test",
+        node: true,
+        meta: {
+          title: "D3图表",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Interval",
+        name: "d3Interval",
+        node: true,
+        meta: {
+          title: "d3柱状图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Pie",
+        name: "d3Pie",
+        node: true,
+        meta: {
+          title: "d3饼图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Smooth",
+        name: "d3Smooth",
+        node: true,
+        meta: {
+          title: "平滑缩放",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/d3Canvas",
+        name: "d3Canvas",
+        node: true,
+        meta: {
+          title: "正交到等矩形",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/d3Bar",
+        name: "d3Bar",
+        node: true,
+        meta: {
+          title: "柱状图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/d3Clock",
+        name: "d3Clock",
+        node: true,
+        meta: {
+          title: "时钟",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+    ],
+  },
+
+  {
+    path: "/d3",
+    name: "d3",
+    node: false,
+    meta: {
+      title: "D3图表",
+      icon: "icon-ziyuan",
+      keepAlive: true,
+    },
+    children: [
+      {
+        path: "/inTerval",
+        name: "inTerval",
+        node: true,
+        meta: {
+          title: "柱状图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+      {
+        path: "/3dChart",
+        name: "3dChart",
+        node: true,
+        meta: {
+          title: "3D立体",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/brokenLine",
+        name: "brokenLine",
+        node: true,
+        meta: {
+          title: "折线图",
+          icon: "home-4-line",
+          keepAlive: true,
+        },
+      },
+
+      {
+        path: "/area",
+        name: "area",
+        node: true,
+        meta: {
+          title: "面积",
           icon: "home-4-line",
           keepAlive: true,
         },

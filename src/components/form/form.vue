@@ -1,8 +1,8 @@
 <!--
  * @Author: 九阳
  * @Date: 2021-11-25 13:46:40
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-26 10:11:19
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-11-30 16:35:32
 -->
 <template>
   <template v-if="isObjectEdit">
@@ -16,46 +16,44 @@
       <a-row :gutter="24">
         <template v-for="(item, index) in ObjectField" :key="index">
           <a-col class="gutter-row" :span="item['span']">
-            <a-config-provider :locale="zhCN">
-              <a-form-item
-                :ref="item['field']"
-                :label="item['label']"
-                :name="item['field']"
-                :required="item['required']"
-              >
-                <!--文本 -->
-                <template v-if="item['type'] === 'input'">
-                  <a-input
-                    v-model:value="ObjectData[item['field']]"
-                    :placeholder="item['placeholder']"
-                    allowClear
-                  />
-                </template>
-                <!--大文本 -->
-                <template v-if="item['type'] === 'textarea'">
-                  <a-textarea
-                    v-model:value="ObjectData[item['field']]"
-                    :placeholder="item['placeholder']"
-                    allowClear
-                    :auto-size="autoSize(item['autoSize'])"
-                  />
-                </template>
-                <!--日期 -->
-                <template v-if="item['type'] === 'date'">
-                  <VueDate
-                    v-model:formData="ObjectData"
-                    :formField="item"
-                  ></VueDate>
-                </template>
-                <!--选择 -->
-                <template v-if="item['type'] === 'select'">
-                  <vueSelect
-                    v-model:dataValue="ObjectData[item['field']]"
-                    :formField="item"
-                  ></vueSelect>
-                </template>
-              </a-form-item>
-            </a-config-provider>
+            <a-form-item
+              :ref="item['field']"
+              :label="item['label']"
+              :name="item['field']"
+              :required="item['required']"
+            >
+              <!--文本 -->
+              <template v-if="item['type'] === 'input'">
+                <a-input
+                  v-model:value="ObjectData[item['field']]"
+                  :placeholder="item['placeholder']"
+                  allowClear
+                />
+              </template>
+              <!--大文本 -->
+              <template v-if="item['type'] === 'textarea'">
+                <a-textarea
+                  v-model:value="ObjectData[item['field']]"
+                  :placeholder="item['placeholder']"
+                  allowClear
+                  :auto-size="autoSize(item['autoSize'])"
+                />
+              </template>
+              <!--日期 -->
+              <template v-if="item['type'] === 'date'">
+                <VueDate
+                  v-model:formData="ObjectData"
+                  :formField="item"
+                ></VueDate>
+              </template>
+              <!--选择 -->
+              <template v-if="item['type'] === 'select'">
+                <vueSelect
+                  v-model:dataValue="ObjectData[item['field']]"
+                  :formField="item"
+                ></vueSelect>
+              </template>
+            </a-form-item>
           </a-col>
         </template>
       </a-row>
@@ -79,7 +77,6 @@
   </template>
 </template>
 <script lang="ts">
-import zhCN from "ant-design-vue/es/locale/zh_CN";
 import { ValidateErrorEntity } from "ant-design-vue/es/form/interface";
 import { Moment } from "moment";
 import {
@@ -186,7 +183,6 @@ export default defineComponent({
       return value;
     };
     return {
-      zhCN,
       ...toRefs(state),
       labelCol: { style: { width: "120px" } },
       formRef,

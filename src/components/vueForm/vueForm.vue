@@ -1,8 +1,8 @@
 <!--
  * @Author: 九阳
  * @Date: 2021-11-26 10:13:26
- * @LastEditors: 九阳
- * @LastEditTime: 2021-11-28 16:52:58
+ * @LastEditors: 李九阳
+ * @LastEditTime: 2021-11-30 16:38:36
 -->
 <template>
   <template v-if="isObjectEdit">
@@ -30,7 +30,7 @@
                 ></vueFormSpan>
               </template>
             </template>
-            <a-config-provider :locale="zhCN" v-else>
+            <template v-else>
               <!-- 多选框 -->
               <template v-if="item['type'] === 'checkbox'">
                 <vueFormCheckbox
@@ -81,7 +81,7 @@
                   :formField="item"
                 ></vueFormUpload
               ></template>
-            </a-config-provider>
+            </template>
           </a-col>
         </template>
       </a-row>
@@ -117,7 +117,6 @@
   </template>
 </template>
 <script lang="ts">
-import zhCN from "ant-design-vue/es/locale/zh_CN";
 import { ValidateErrorEntity } from "ant-design-vue/es/form/interface";
 import { Moment } from "moment";
 import {
@@ -218,7 +217,6 @@ export default defineComponent({
         });
     };
     return {
-      zhCN,
       ...toRefs(state),
       labelCol: { style: { width: "120px" } },
       formRef,
